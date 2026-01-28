@@ -1,35 +1,45 @@
 ---
-// Services Section - 6 Service Cards
+// Services Section - 8 Service Cards using user-provided images
 const services = [
     {
         title: 'Regular House Cleaning',
         description: 'Weekly, fortnightly, or monthly options',
-        image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop'
+        image: '/images/clearspace/IMG_4526.JPG'
     },
     {
         title: 'Deep Cleaning',
         description: 'Thorough top-to-bottom clean',
-        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop'
+        image: '/images/clearspace/IMG_4528.JPG'
     },
     {
         title: 'Move In/Out Cleaning',
         description: 'Perfect for tenancy changeovers',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop'
+        image: '/images/clearspace/IMG_4525.JPG'
     },
     {
-        title: 'Office Cleaning',
-        description: 'Professional workspace cleaning',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop'
+        title: 'Bathroom Cleaning',
+        description: 'Sparkling bathrooms every time',
+        image: '/images/clearspace/IMG_4522.JPG'
     },
     {
-        title: 'Carpet Cleaning',
-        description: 'Steam cleaning and stain removal',
-        image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=300&fit=crop'
+        title: 'Kitchen Cleaning',
+        description: 'Thorough kitchen deep clean',
+        image: '/images/clearspace/IMG_4523.JPG'
     },
     {
-        title: 'Window Cleaning',
-        description: 'Inside and outside window cleaning',
-        image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&h=300&fit=crop'
+        title: 'Shower & Bath Cleaning',
+        description: 'Expert tile and grout cleaning',
+        image: '/images/clearspace/IMG_4524.JPG'
+    },
+    {
+        title: 'Ensuite Cleaning',
+        description: 'Detailed attention to every surface',
+        image: '/images/clearspace/IMG_4529.JPG'
+    },
+    {
+        title: 'Full Property Cleaning',
+        description: 'Complete home cleaning service',
+        image: '/images/clearspace/IMG_4530.JPG'
     }
 ];
 ---
@@ -39,7 +49,7 @@ const services = [
         <h2 class="section-title fade-in-on-scroll">Our Cleaning Services</h2>
         <p class="section-subtitle fade-in-on-scroll">Professional cleaning solutions for every need</p>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {services.map((service, index) => (
                 <div class={`card overflow-hidden fade-in-on-scroll animation-delay-${Math.min((index + 1) * 100, 400)}`}>
                     <img

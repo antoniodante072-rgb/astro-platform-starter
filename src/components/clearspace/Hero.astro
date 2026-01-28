@@ -2,8 +2,18 @@
 // Hero Section with Quote Form
 ---
 
-<section id="home" class="bg-grey-soft pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
-    <div class="container-custom">
+<section id="home" class="bg-grey-soft pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 relative overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img
+            src="/images/clearspace/IMG_4527.JPG"
+            alt="Beautiful clean living room"
+            class="w-full h-full object-cover opacity-20"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-grey-soft via-grey-soft/95 to-grey-soft/80"></div>
+    </div>
+
+    <div class="container-custom relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left Content -->
             <div class="text-center lg:text-left">
