@@ -1,0 +1,105 @@
+---
+// Hero Section with Quote Form
+---
+
+<section id="home" class="bg-grey-soft pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
+    <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="text-center lg:text-left">
+                <h1 class="mb-6 fade-in-on-scroll">
+                    Professional Cleaning Services in Newcastle Upon Tyne
+                </h1>
+                <p class="text-lg sm:text-xl text-grey-modern mb-8 fade-in-on-scroll">
+                    Trusted, eco-friendly, and thorough cleaning for your home
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 fade-in-on-scroll">
+                    <a href="#pricing" class="btn btn-lg">Book Your Clean</a>
+                    <a href="#quote-form" class="btn btn-outline btn-lg">Get a Free Quote</a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm text-grey-modern fade-in-on-scroll">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span>100+ Happy Customers</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <span>Eco-Friendly Products</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Satisfaction Guaranteed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Form -->
+            <div id="quote-form" class="fade-in-on-scroll">
+                <div class="bg-white rounded-lg shadow-xl p-6 sm:p-8">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Request a Free Quote</h3>
+                    <p class="text-grey-modern text-center mb-6">We'll get back to you within 24 hours</p>
+
+                    <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="quote-request" />
+                        <p class="hidden">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+
+                        <div class="form-fields space-y-4">
+                            <div>
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" id="name" name="name" required class="form-input" placeholder="Your full name" />
+                            </div>
+
+                            <div>
+                                <label for="phone" class="form-label">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required class="form-input" placeholder="Your phone number" />
+                            </div>
+
+                            <div>
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="your@email.com" />
+                            </div>
+
+                            <div>
+                                <label for="property-type" class="form-label">Property Type</label>
+                                <select id="property-type" name="property-type" class="form-input">
+                                    <option value="">Select property type</option>
+                                    <option value="house">House</option>
+                                    <option value="flat">Flat</option>
+                                    <option value="office">Office</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="form-label">Message / Additional Details</label>
+                                <textarea id="message" name="message" rows="3" class="form-input" placeholder="Tell us about your cleaning needs..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-lg w-full">Request Free Quote</button>
+                        </div>
+
+                        <div class="success-message hidden text-center py-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-emerald mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h4 class="text-xl font-semibold text-text-dark mb-2">Thank You!</h4>
+                            <p class="text-grey-modern">We'll contact you within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

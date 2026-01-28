@@ -1,0 +1,61 @@
+---
+// Testimonials Section - Anonymous Reviews
+const testimonials = [
+    {
+        quote: "Absolutely brilliant service! The team was professional, thorough, and my house has never looked better. Will definitely be booking again.",
+        rating: 5,
+        location: "Jesmond, Newcastle"
+    },
+    {
+        quote: "I was impressed by the attention to detail and the eco-friendly products they used. Great value for money and very reliable.",
+        rating: 5,
+        location: "Gosforth, Newcastle"
+    },
+    {
+        quote: "The deep clean service was exactly what I needed before moving in. Every corner was spotless. Highly recommend!",
+        rating: 5,
+        location: "Heaton, Newcastle"
+    },
+    {
+        quote: "Flexible scheduling and friendly staff. They worked around my busy schedule and the results were fantastic.",
+        rating: 5,
+        location: "Quayside, Newcastle"
+    }
+];
+
+function renderStars(rating: number) {
+    return Array(rating).fill('★').join('');
+}
+---
+
+<section id="testimonials" class="section bg-white">
+    <div class="container-custom">
+        <h2 class="section-title fade-in-on-scroll">What Our Customers Say</h2>
+        <p class="section-subtitle fade-in-on-scroll">Real feedback from satisfied customers in Newcastle</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.map((testimonial, index) => (
+                <div class={`card p-6 fade-in-on-scroll animation-delay-${Math.min((index + 1) * 100, 400)}`}>
+                    <!-- Stars -->
+                    <div class="text-yellow-400 text-lg mb-4">
+                        {renderStars(testimonial.rating)}
+                    </div>
+
+                    <!-- Quote -->
+                    <blockquote class="text-grey-modern text-sm mb-4 leading-relaxed">
+                        "{testimonial.quote}"
+                    </blockquote>
+
+                    <!-- Location -->
+                    <div class="flex items-center gap-2 text-sm text-emerald font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        {testimonial.location}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

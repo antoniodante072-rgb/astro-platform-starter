@@ -1,0 +1,59 @@
+---
+// Services Section - 6 Service Cards
+const services = [
+    {
+        title: 'Regular House Cleaning',
+        description: 'Weekly, fortnightly, or monthly options',
+        image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop'
+    },
+    {
+        title: 'Deep Cleaning',
+        description: 'Thorough top-to-bottom clean',
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop'
+    },
+    {
+        title: 'Move In/Out Cleaning',
+        description: 'Perfect for tenancy changeovers',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop'
+    },
+    {
+        title: 'Office Cleaning',
+        description: 'Professional workspace cleaning',
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop'
+    },
+    {
+        title: 'Carpet Cleaning',
+        description: 'Steam cleaning and stain removal',
+        image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=300&fit=crop'
+    },
+    {
+        title: 'Window Cleaning',
+        description: 'Inside and outside window cleaning',
+        image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&h=300&fit=crop'
+    }
+];
+---
+
+<section id="services" class="section bg-grey-soft">
+    <div class="container-custom">
+        <h2 class="section-title fade-in-on-scroll">Our Cleaning Services</h2>
+        <p class="section-subtitle fade-in-on-scroll">Professional cleaning solutions for every need</p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {services.map((service, index) => (
+                <div class={`card overflow-hidden fade-in-on-scroll animation-delay-${Math.min((index + 1) * 100, 400)}`}>
+                    <img
+                        src={service.image}
+                        alt={service.title}
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">{service.title}</h3>
+                        <p class="text-grey-modern text-sm">{service.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

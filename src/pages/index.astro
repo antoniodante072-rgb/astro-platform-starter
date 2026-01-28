@@ -1,19 +1,181 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+import ClearSpaceLayout from '../layouts/ClearSpaceLayout.astro';
+import PromoBanner from '../components/clearspace/PromoBanner.astro';
+import Header from '../components/clearspace/Header.astro';
+import Hero from '../components/clearspace/Hero.astro';
+import ValueProposition from '../components/clearspace/ValueProposition.astro';
+import Services from '../components/clearspace/Services.astro';
+import HowItWorks from '../components/clearspace/HowItWorks.astro';
+import Pricing from '../components/clearspace/Pricing.astro';
+import Testimonials from '../components/clearspace/Testimonials.astro';
+import ServiceAreas from '../components/clearspace/ServiceAreas.astro';
+import FAQ from '../components/clearspace/FAQ.astro';
+import FinalCTA from '../components/clearspace/FinalCTA.astro';
+import Footer from '../components/clearspace/Footer.astro';
+import WhatsAppButton from '../components/clearspace/WhatsAppButton.astro';
+import BookingModal from '../components/clearspace/BookingModal.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+<ClearSpaceLayout title="ClearSpace Cleaning | Professional House Cleaning in Newcastle Upon Tyne">
+    <PromoBanner />
+    <Header />
+    <main>
+        <Hero />
+        <ValueProposition />
+        <Services />
+        <HowItWorks />
+        <Pricing />
+        <Testimonials />
+        <ServiceAreas />
+        <FAQ />
+        <FinalCTA />
+    </main>
+    <Footer />
+    <WhatsAppButton />
+    <BookingModal />
+
+    <!-- Scroll Animation Script -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Sticky header shadow
+        const header = document.querySelector('#main-header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('#menu-toggle');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const menuOverlay = document.querySelector('#menu-overlay');
+        const closeMenu = document.querySelector('#close-menu');
+
+        function openMenu() {
+            mobileMenu?.classList.remove('translate-x-full');
+            menuOverlay?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenuFn() {
+            mobileMenu?.classList.add('translate-x-full');
+            menuOverlay?.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle?.addEventListener('click', openMenu);
+        closeMenu?.addEventListener('click', closeMenuFn);
+        menuOverlay?.addEventListener('click', closeMenuFn);
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenuFn);
+        });
+
+        // Promo banner dismiss
+        const dismissBanner = document.querySelector('#dismiss-banner');
+        const promoBanner = document.querySelector('#promo-banner');
+
+        dismissBanner?.addEventListener('click', () => {
+            promoBanner?.classList.add('hidden');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    if (a !== answer) {
+                        a.classList.add('hidden');
+                    }
+                });
+                document.querySelectorAll('.faq-icon').forEach(i => {
+                    if (i !== icon) {
+                        i.classList.remove('rotate-180');
+                    }
+                });
+
+                // Toggle current answer
+                answer?.classList.toggle('hidden');
+                icon?.classList.toggle('rotate-180');
+            });
+        });
+
+        // Booking modal
+        const bookingModal = document.querySelector('#booking-modal');
+        const openBookingBtns = document.querySelectorAll('[data-open-booking]');
+        const closeBookingBtn = document.querySelector('#close-booking');
+        const bookingOverlay = document.querySelector('#booking-overlay');
+
+        function openBooking() {
+            bookingModal?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBooking() {
+            bookingModal?.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        openBookingBtns.forEach(btn => {
+            btn.addEventListener('click', openBooking);
+        });
+        closeBookingBtn?.addEventListener('click', closeBooking);
+        bookingOverlay?.addEventListener('click', closeBooking);
+
+        // Form submission success handling
+        const forms = document.querySelectorAll('form[data-netlify="true"]');
+        forms.forEach(form => {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form as HTMLFormElement);
+
+                try {
+                    const response = await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData as any).toString()
+                    });
+
+                    if (response.ok) {
+                        const successMsg = form.querySelector('.success-message');
+                        const formFields = form.querySelector('.form-fields');
+                        if (successMsg && formFields) {
+                            formFields.classList.add('hidden');
+                            successMsg.classList.remove('hidden');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                }
+            });
+        });
+    </script>
+</ClearSpaceLayout>
