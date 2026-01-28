@@ -1,0 +1,72 @@
+---
+// Hero Section - Premium Design
+---
+
+<section id="home" class="relative min-h-[600px] lg:min-h-[700px] overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img
+            src="/images/clearspace/IMG_4527_1.JPG"
+            alt="Beautiful clean living room"
+            class="w-full h-full object-cover"
+        />
+        <!-- Gradient overlay - subtle white glow on left for text readability, fading to transparent on right -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-transparent"></div>
+    </div>
+
+    <div class="container-custom relative z-10 py-16 lg:py-24">
+        <div class="max-w-xl">
+            <!-- Left Content -->
+            <div class="text-slate-900">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 fade-in-on-scroll leading-tight">
+                    Your Home<br />
+                    <span class="text-emerald">Deserves</span><br />
+                    Premium Care
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 mb-6 fade-in-on-scroll font-bold">
+                    Professional cleaning services that transform your space into a sanctuary
+                </p>
+
+                <!-- Location Badge -->
+                <div class="flex items-center gap-2 text-gray-600 mb-8 fade-in-on-scroll">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Proudly serving Newcastle Upon Tyne</span>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 fade-in-on-scroll">
+                    <a href="#pricing" class="btn btn-lg inline-flex items-center justify-center gap-2">
+                        Book Now
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                    <button type="button" data-open-booking class="btn bg-white text-slate-900 hover:bg-gray-100 btn-lg">Get A Quote</button>
+                    <a href="#pricing" class="btn btn-outline btn-lg">
+                        View Pricing
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Availability Badge -->
+    <div class="absolute bottom-8 right-8 z-20 hidden lg:block fade-in-on-scroll">
+        <div class="bg-white rounded-full px-4 py-3 shadow-lg flex items-center gap-3">
+            <div class="relative">
+                <div class="w-10 h-10 bg-emerald rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="absolute -top-1 -right-1 w-4 h-4 bg-emerald rounded-full border-2 border-white"></div>
+            </div>
+            <div class="text-sm">
+                <div class="text-gray-500">Next Available</div>
+                <div class="font-semibold text-slate-900">Tomorrow 8:00</div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+---
+// FAQ Section - Accordion
+const faqs = [
+    {
+        question: 'Do I need to provide cleaning supplies?',
+        answer: 'No, we bring all necessary cleaning supplies and equipment, including eco-friendly products.'
+    },
+    {
+        question: 'Are you insured?',
+        answer: 'Yes, we are fully insured for your peace of mind.'
+    },
+    {
+        question: "What if I'm not satisfied with the cleaning?",
+        answer: "We offer a satisfaction guarantee. If you're not happy, we'll come back and re-clean at no extra cost."
+    },
+    {
+        question: 'How do I pay?',
+        answer: 'We accept cash, bank transfer, and card payments. Payment is due after the cleaning is complete.'
+    },
+    {
+        question: 'Can I book a same-day clean?',
+        answer: "We'll do our best to accommodate same-day requests. Call us at +44 7377 392814 to check availability."
+    },
+    {
+        question: 'Do I need to be home during the cleaning?',
+        answer: "Not necessarily. Many customers provide access and leave us to work. We're fully insured and trustworthy."
+    },
+    {
+        question: 'What areas do you cover?',
+        answer: 'We serve Newcastle Upon Tyne and surrounding areas including Jesmond, Gosforth, Heaton, and more.'
+    },
+    {
+        question: 'Are your products safe for pets and children?',
+        answer: 'Yes, all our cleaning products are eco-friendly and safe for families and pets.'
+    }
+];
+---
+
+<section id="faq" class="section bg-white">
+    <div class="container-custom max-w-3xl">
+        <h2 class="section-title fade-in-on-scroll">Frequently Asked Questions</h2>
+        <p class="section-subtitle fade-in-on-scroll">Got questions? We've got answers</p>
+
+        <div class="space-y-4 fade-in-on-scroll">
+            {faqs.map((faq, index) => (
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="faq-question w-full flex items-center justify-between p-5 text-left bg-white hover:bg-grey-soft transition-colors"
+                        aria-expanded="false"
+                    >
+                        <span class="font-semibold text-text-dark pr-4" style="font-family: var(--font-heading);">
+                            {faq.question}
+                        </span>
+                        <svg
+                            class="faq-icon h-5 w-5 text-emerald flex-shrink-0 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="faq-answer hidden px-5 pb-5">
+                        <p class="text-grey-modern">{faq.answer}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

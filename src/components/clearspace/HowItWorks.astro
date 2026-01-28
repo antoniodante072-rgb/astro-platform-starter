@@ -1,0 +1,71 @@
+---
+// How It Works - 3 Step Process
+const steps = [
+    {
+        number: '1',
+        title: 'Request a Quote',
+        description: 'Fill out our simple form or call us for a free, no-obligation quote',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        </svg>`
+    },
+    {
+        number: '2',
+        title: 'Schedule Your Clean',
+        description: 'Choose a date and time that works for you - we offer flexible scheduling',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>`
+    },
+    {
+        number: '3',
+        title: 'Enjoy Your Clean Home',
+        description: 'Our professional team arrives and transforms your space while you relax',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>`
+    }
+];
+---
+
+<section class="section bg-white">
+    <div class="container-custom">
+        <h2 class="section-title fade-in-on-scroll">How It Works</h2>
+        <p class="section-subtitle fade-in-on-scroll">Getting your home cleaned is easy in three simple steps</p>
+
+        <div class="relative">
+            <!-- Connection Line (Desktop) -->
+            <div class="hidden md:block absolute top-24 left-1/6 right-1/6 h-0.5 bg-emerald/30" aria-hidden="true"></div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                {steps.map((step, index) => (
+                    <div class={`text-center relative fade-in-on-scroll animation-delay-${(index + 1) * 100}`}>
+                        <!-- Step Number Circle -->
+                        <div class="relative inline-flex items-center justify-center w-20 h-20 bg-emerald text-white rounded-full mb-6 mx-auto z-10">
+                            <span class="text-3xl font-bold" style="font-family: var(--font-heading);">{step.number}</span>
+                        </div>
+
+                        <!-- Icon -->
+                        <div class="text-emerald mb-4 flex justify-center" set:html={step.icon} />
+
+                        <h3 class="text-xl font-semibold mb-3">{step.title}</h3>
+                        <p class="text-grey-modern">{step.description}</p>
+
+                        {/* Arrow for mobile between steps */}
+                        {index < steps.length - 1 && (
+                            <div class="md:hidden flex justify-center my-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                </svg>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in-on-scroll">
+            <button type="button" data-open-booking class="btn btn-lg">Get Started Now</button>
+        </div>
+    </div>
+</section>

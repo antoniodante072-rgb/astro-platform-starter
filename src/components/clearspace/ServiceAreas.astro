@@ -1,0 +1,40 @@
+---
+// Service Areas Section
+const areas = [
+    'City Centre',
+    'Jesmond',
+    'Gosforth',
+    'Heaton',
+    'Walker',
+    'Byker',
+    'Quayside',
+    'Fenham',
+    'Benwell',
+    'Elswick'
+];
+---
+
+<section class="section bg-grey-soft">
+    <div class="container-custom">
+        <h2 class="section-title fade-in-on-scroll">Areas We Cover</h2>
+        <p class="section-subtitle fade-in-on-scroll">Proudly serving Newcastle Upon Tyne and surrounding areas</p>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-8 fade-in-on-scroll">
+            {areas.map(area => (
+                <span class="bg-white px-4 py-2 rounded-full text-sm font-medium text-grey-modern shadow-sm border border-gray-200 hover:border-emerald hover:text-emerald transition-colors">
+                    {area}
+                </span>
+            ))}
+            <span class="bg-emerald/10 px-4 py-2 rounded-full text-sm font-medium text-emerald">
+                And more...
+            </span>
+        </div>
+
+        <div class="text-center fade-in-on-scroll">
+            <p class="text-grey-modern mb-4">Don't see your area?</p>
+            <a href="tel:+447377392814" class="text-emerald font-semibold text-lg hover:text-emerald-dark">
+                Call us at +44 7377 392814
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+---
+// Promotional Banner - Sticky at top with dismiss button
+---
+
+<div id="promo-banner" class="bg-emerald text-white py-3 px-4 relative z-50">
+    <div class="container-custom flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
+        <p class="text-sm sm:text-base font-medium">
+            Limited Time Offer: 15% Off Your First Clean! 🎉
+        </p>
+        <a href="tel:+447377392814" class="text-white font-semibold hover:text-white/90 no-underline whitespace-nowrap">
+            Call: +44 7377 392814
+        </a>
+        <button
+            id="dismiss-banner"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-colors"
+            aria-label="Dismiss banner"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</div>

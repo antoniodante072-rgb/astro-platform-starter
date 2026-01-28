@@ -1,0 +1,156 @@
+---
+// Booking Modal with Comprehensive Form
+---
+
+<div id="booking-modal" class="hidden fixed inset-0 z-50">
+    <!-- Overlay -->
+    <div id="booking-overlay" class="absolute inset-0 bg-black/60"></div>
+
+    <!-- Modal Content -->
+    <div class="absolute inset-4 md:inset-8 lg:inset-16 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-full overflow-y-auto">
+            <!-- Header -->
+            <div class="sticky top-0 bg-emerald text-white px-6 py-4 flex items-center justify-between rounded-t-lg">
+                <h3 class="text-xl font-semibold" style="font-family: var(--font-heading);">Book Your Clean</h3>
+                <button id="close-booking" class="text-white hover:text-white/80 transition-colors" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form name="booking-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="p-6">
+                <input type="hidden" name="form-name" value="booking-request" />
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="form-fields space-y-5">
+                    <!-- Personal Information -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="booking-name" class="form-label">Full Name *</label>
+                            <input type="text" id="booking-name" name="full-name" required class="form-input" placeholder="Your full name" />
+                        </div>
+                        <div>
+                            <label for="booking-email" class="form-label">Email *</label>
+                            <input type="email" id="booking-email" name="email" required class="form-input" placeholder="your@email.com" />
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="booking-phone" class="form-label">Phone *</label>
+                            <input type="tel" id="booking-phone" name="phone" required class="form-input" placeholder="Your phone number" />
+                        </div>
+                        <div>
+                            <label for="booking-postcode" class="form-label">Postcode *</label>
+                            <input type="text" id="booking-postcode" name="postcode" required class="form-input" placeholder="NE1 1AA" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="booking-address" class="form-label">Address *</label>
+                        <input type="text" id="booking-address" name="address" required class="form-input" placeholder="Your full address" />
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="booking-property" class="form-label">Property Type</label>
+                            <select id="booking-property" name="property-type" class="form-input">
+                                <option value="">Select type</option>
+                                <option value="house">House</option>
+                                <option value="flat">Flat</option>
+                                <option value="office">Office</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="booking-bedrooms" class="form-label">Bedrooms</label>
+                            <select id="booking-bedrooms" name="bedrooms" class="form-input">
+                                <option value="">Select</option>
+                                <option value="studio">Studio</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="booking-bathrooms" class="form-label">Bathrooms</label>
+                            <select id="booking-bathrooms" name="bathrooms" class="form-input">
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Service Details -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="booking-service" class="form-label">Service Type</label>
+                            <select id="booking-service" name="service-type" class="form-input">
+                                <option value="">Select service</option>
+                                <option value="regular">Regular Clean</option>
+                                <option value="deep">Deep Clean</option>
+                                <option value="move-in-out">Move In/Out</option>
+                                <option value="office">Office Clean</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="booking-frequency" class="form-label">Frequency</label>
+                            <select id="booking-frequency" name="frequency" class="form-input">
+                                <option value="">Select frequency</option>
+                                <option value="one-time">One-time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="fortnightly">Fortnightly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Date & Time -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="booking-date" class="form-label">Preferred Date</label>
+                            <input type="date" id="booking-date" name="preferred-date" class="form-input" />
+                        </div>
+                        <div>
+                            <label for="booking-time" class="form-label">Preferred Time</label>
+                            <select id="booking-time" name="preferred-time" class="form-input">
+                                <option value="">Select time</option>
+                                <option value="morning">Morning (8am - 12pm)</option>
+                                <option value="afternoon">Afternoon (12pm - 4pm)</option>
+                                <option value="evening">Evening (4pm - 8pm)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Special Requirements -->
+                    <div>
+                        <label for="booking-requirements" class="form-label">Special Requirements</label>
+                        <textarea id="booking-requirements" name="special-requirements" rows="3" class="form-input" placeholder="Any specific areas of focus, access instructions, or other requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-lg w-full">Book My Clean</button>
+                </div>
+
+                <!-- Success Message -->
+                <div class="success-message hidden text-center py-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-emerald mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h4 class="text-2xl font-semibold text-text-dark mb-3" style="font-family: var(--font-heading);">Booking Request Received!</h4>
+                    <p class="text-grey-modern mb-6">We'll confirm your appointment shortly.</p>
+                    <button type="button" onclick="document.getElementById('booking-modal').classList.add('hidden'); document.body.style.overflow = '';" class="btn">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

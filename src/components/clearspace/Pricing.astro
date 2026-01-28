@@ -1,0 +1,123 @@
+---
+// Pricing Section - 3 Tiers
+const pricingPlans = [
+    {
+        name: 'Basic Clean',
+        price: '£25',
+        unit: '/hour',
+        description: 'Standard cleaning tasks',
+        features: [
+            'Dusting',
+            'Vacuuming',
+            'Mopping',
+            'Kitchen cleaning',
+            'Bathroom cleaning'
+        ],
+        note: 'Eco-friendly products included',
+        minOrder: '2 hour minimum',
+        highlighted: false,
+        badge: null,
+        buttonText: 'Book Now',
+        buttonAction: 'data-open-booking'
+    },
+    {
+        name: 'Deep Clean',
+        price: '£35',
+        unit: '/hour',
+        description: 'Comprehensive cleaning',
+        features: [
+            'Everything in Basic plus:',
+            'Inside oven',
+            'Inside fridge',
+            'Skirting boards',
+            'Window sills',
+            'Door frames'
+        ],
+        note: null,
+        minOrder: null,
+        highlighted: true,
+        badge: 'MOST POPULAR',
+        buttonText: 'Book Now',
+        buttonAction: 'data-open-booking'
+    },
+    {
+        name: 'Specialized',
+        price: 'Custom',
+        unit: ' pricing',
+        description: 'Tailored to your needs',
+        features: [
+            'Move in/out cleaning',
+            'Post-renovation cleaning',
+            'Carpet cleaning',
+            'Window cleaning',
+            'One-time services'
+        ],
+        note: null,
+        minOrder: null,
+        highlighted: false,
+        badge: null,
+        buttonText: 'Get Quote',
+        buttonAction: 'data-open-booking'
+    }
+];
+---
+
+<section id="pricing" class="section bg-grey-soft">
+    <div class="container-custom">
+        <h2 class="section-title fade-in-on-scroll">Transparent Pricing</h2>
+        <p class="section-subtitle fade-in-on-scroll text-lg">No hidden fees. No surprises.</p>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+                <div class={`relative bg-white rounded-lg shadow-lg overflow-hidden fade-in-on-scroll animation-delay-${(index + 1) * 100} border-2 border-black ${plan.highlighted ? 'ring-2 ring-emerald' : ''}`}>
+                    {plan.badge && (
+                        <div class="absolute top-0 right-0 bg-emerald text-white text-sm font-bold px-3 py-1 rounded-bl-lg">
+                            {plan.badge}
+                        </div>
+                    )}
+
+                    <div class="p-6 lg:p-8">
+                        <h3 class="text-2xl font-semibold mb-2 text-black">{plan.name}</h3>
+                        <div class="mb-4">
+                            <span class="text-5xl font-bold text-black" style="font-family: var(--font-heading); text-shadow: 0 0 1px #000;">{plan.price}</span>
+                            <span class="text-grey-modern text-lg">{plan.unit}</span>
+                        </div>
+                        <p class="text-grey-modern text-base mb-6">{plan.description}</p>
+
+                        <ul class="space-y-3 mb-6">
+                            {plan.features.map(feature => (
+                                <li class="flex items-start gap-2 text-base">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span class="text-grey-modern">{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {plan.note && (
+                            <p class="text-base text-emerald font-medium mb-2">{plan.note}</p>
+                        )}
+                        {plan.minOrder && (
+                            <p class="text-base text-grey-modern mb-4">{plan.minOrder}</p>
+                        )}
+
+                        {plan.buttonAction.startsWith('data-') ? (
+                            <button class={`btn w-full ${plan.highlighted ? '' : 'btn-outline'}`} data-open-booking>
+                                {plan.buttonText}
+                            </button>
+                        ) : (
+                            <a href="#quote-form" class={`btn w-full ${plan.highlighted ? '' : 'btn-outline'}`}>
+                                {plan.buttonText}
+                            </a>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <p class="text-center text-base text-grey-modern mt-8 fade-in-on-scroll">
+            All prices subject to property size and condition
+        </p>
+    </div>
+</section>
