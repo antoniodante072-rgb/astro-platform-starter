@@ -69,7 +69,7 @@ const pricingPlans = [
 
         <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
-                <div class={`relative bg-white rounded-lg shadow-lg overflow-hidden fade-in-on-scroll animation-delay-${(index + 1) * 100} ${plan.highlighted ? 'ring-2 ring-emerald' : ''}`}>
+                <div class={`relative bg-white rounded-lg shadow-lg overflow-hidden fade-in-on-scroll animation-delay-${(index + 1) * 100} border-2 border-black ${plan.highlighted ? 'ring-2 ring-emerald' : ''}`}>
                     {plan.badge && (
                         <div class="absolute top-0 right-0 bg-emerald text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                             {plan.badge}
@@ -77,9 +77,9 @@ const pricingPlans = [
                     )}
 
                     <div class="p-6 lg:p-8">
-                        <h3 class="text-xl font-semibold mb-2">{plan.name}</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-black">{plan.name}</h3>
                         <div class="mb-4">
-                            <span class="text-4xl font-bold text-text-dark" style="font-family: var(--font-heading);">{plan.price}</span>
+                            <span class="text-4xl font-bold text-black" style="font-family: var(--font-heading); text-shadow: 0 0 1px #000;">{plan.price}</span>
                             <span class="text-grey-modern">{plan.unit}</span>
                         </div>
                         <p class="text-grey-modern text-sm mb-6">{plan.description}</p>

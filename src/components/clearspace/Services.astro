@@ -1,44 +1,44 @@
 ---
-// Services Section - 8 Service Cards using user-provided images
-const services = [
+// Our Work Section - Showcasing completed cleaning projects
+const projects = [
     {
-        title: 'Regular House Cleaning',
-        description: 'Weekly, fortnightly, or monthly options',
+        title: 'Living Room Transformation',
+        description: 'Deep cleaned and restored to pristine condition',
         image: '/images/clearspace/IMG_4526.JPG'
     },
     {
-        title: 'Deep Cleaning',
-        description: 'Thorough top-to-bottom clean',
+        title: 'Kitchen Revival',
+        description: 'Spotless surfaces from floor to ceiling',
         image: '/images/clearspace/IMG_4528.JPG'
     },
     {
-        title: 'Move In/Out Cleaning',
-        description: 'Perfect for tenancy changeovers',
+        title: 'Move-Out Ready',
+        description: 'Full property cleaned for new tenants',
         image: '/images/clearspace/IMG_4525.JPG'
     },
     {
-        title: 'Bathroom Cleaning',
-        description: 'Sparkling bathrooms every time',
+        title: 'Bathroom Makeover',
+        description: 'Gleaming tiles and fresh-smelling spaces',
         image: '/images/clearspace/IMG_4522.JPG'
     },
     {
-        title: 'Kitchen Cleaning',
-        description: 'Thorough kitchen deep clean',
+        title: 'Modern Kitchen Deep Clean',
+        description: 'Appliances, cabinets, and counters refreshed',
         image: '/images/clearspace/IMG_4523.JPG'
     },
     {
-        title: 'Shower & Bath Cleaning',
-        description: 'Expert tile and grout cleaning',
+        title: 'Shower Restoration',
+        description: 'Grout cleaned and glass sparkling clear',
         image: '/images/clearspace/IMG_4524.JPG'
     },
     {
-        title: 'Ensuite Cleaning',
-        description: 'Detailed attention to every surface',
+        title: 'Ensuite Refresh',
+        description: 'Every detail attended to with care',
         image: '/images/clearspace/IMG_4529.JPG'
     },
     {
-        title: 'Full Property Cleaning',
-        description: 'Complete home cleaning service',
+        title: 'Whole Home Transformation',
+        description: 'Complete property brought back to life',
         image: '/images/clearspace/IMG_4530.JPG'
     }
 ];
@@ -46,24 +46,36 @@ const services = [
 
 <section id="services" class="section bg-grey-soft">
     <div class="container-custom">
-        <h2 class="section-title fade-in-on-scroll">Our Cleaning Services</h2>
-        <p class="section-subtitle fade-in-on-scroll">Professional cleaning solutions for every need</p>
+        <h2 class="section-title fade-in-on-scroll">Our Work</h2>
+        <p class="section-subtitle fade-in-on-scroll">See the difference professional cleaning makes</p>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {services.map((service, index) => (
+            {projects.map((project, index) => (
                 <div class={`card overflow-hidden fade-in-on-scroll animation-delay-${Math.min((index + 1) * 100, 400)}`}>
-                    <img
-                        src={service.image}
-                        alt={service.title}
-                        class="w-full h-48 object-cover"
-                        loading="lazy"
-                    />
+                    <div class="relative group">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
+                        />
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-semibold mb-2">{service.title}</h3>
-                        <p class="text-grey-modern text-sm">{service.description}</p>
+                        <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
+                        <p class="text-grey-modern text-sm">{project.description}</p>
                     </div>
                 </div>
             ))}
+        </div>
+
+        <div class="text-center mt-10 fade-in-on-scroll">
+            <button type="button" data-open-booking class="btn btn-lg inline-flex items-center justify-center gap-2">
+                Get Your Space Transformed
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </button>
         </div>
     </div>
 </section>
