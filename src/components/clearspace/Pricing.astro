@@ -65,28 +65,28 @@ const pricingPlans = [
 <section id="pricing" class="section bg-grey-soft">
     <div class="container-custom">
         <h2 class="section-title fade-in-on-scroll">Transparent Pricing</h2>
-        <p class="section-subtitle fade-in-on-scroll">No hidden fees. No surprises.</p>
+        <p class="section-subtitle fade-in-on-scroll text-lg">No hidden fees. No surprises.</p>
 
         <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {pricingPlans.map((plan, index) => (
                 <div class={`relative bg-white rounded-lg shadow-lg overflow-hidden fade-in-on-scroll animation-delay-${(index + 1) * 100} border-2 border-black ${plan.highlighted ? 'ring-2 ring-emerald' : ''}`}>
                     {plan.badge && (
-                        <div class="absolute top-0 right-0 bg-emerald text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        <div class="absolute top-0 right-0 bg-emerald text-white text-sm font-bold px-3 py-1 rounded-bl-lg">
                             {plan.badge}
                         </div>
                     )}
 
                     <div class="p-6 lg:p-8">
-                        <h3 class="text-xl font-semibold mb-2 text-black">{plan.name}</h3>
+                        <h3 class="text-2xl font-semibold mb-2 text-black">{plan.name}</h3>
                         <div class="mb-4">
-                            <span class="text-4xl font-bold text-black" style="font-family: var(--font-heading); text-shadow: 0 0 1px #000;">{plan.price}</span>
-                            <span class="text-grey-modern">{plan.unit}</span>
+                            <span class="text-5xl font-bold text-black" style="font-family: var(--font-heading); text-shadow: 0 0 1px #000;">{plan.price}</span>
+                            <span class="text-grey-modern text-lg">{plan.unit}</span>
                         </div>
-                        <p class="text-grey-modern text-sm mb-6">{plan.description}</p>
+                        <p class="text-grey-modern text-base mb-6">{plan.description}</p>
 
                         <ul class="space-y-3 mb-6">
                             {plan.features.map(feature => (
-                                <li class="flex items-start gap-2 text-sm">
+                                <li class="flex items-start gap-2 text-base">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -96,10 +96,10 @@ const pricingPlans = [
                         </ul>
 
                         {plan.note && (
-                            <p class="text-sm text-emerald font-medium mb-2">{plan.note}</p>
+                            <p class="text-base text-emerald font-medium mb-2">{plan.note}</p>
                         )}
                         {plan.minOrder && (
-                            <p class="text-sm text-grey-modern mb-4">{plan.minOrder}</p>
+                            <p class="text-base text-grey-modern mb-4">{plan.minOrder}</p>
                         )}
 
                         {plan.buttonAction.startsWith('data-') ? (
@@ -116,7 +116,7 @@ const pricingPlans = [
             ))}
         </div>
 
-        <p class="text-center text-sm text-grey-modern mt-8 fade-in-on-scroll">
+        <p class="text-center text-base text-grey-modern mt-8 fade-in-on-scroll">
             All prices subject to property size and condition
         </p>
     </div>
