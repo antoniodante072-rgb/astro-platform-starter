@@ -1,0 +1,23 @@
+# Netlify configuration file
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[functions]
+  directory = "netlify/functions"
+
+# Form notification settings
+# Note: To receive email notifications for form submissions, you have two options:
+#
+# Option 1: Configure in Netlify Dashboard (Recommended for simple setups)
+#   1. Go to Site settings > Forms > Form notifications
+#   2. Add an "Email notification" for the "booking-request" form
+#   3. Enter your email address to receive notifications
+#
+# Option 2: Use the submission-created function with an email service
+#   Set these environment variables in Netlify Dashboard:
+#   - NOTIFICATION_EMAIL: Your email address to receive notifications
+#   - EMAIL_API_KEY: API key for your email service (SendGrid, Mailgun, etc.)
+#   - EMAIL_API_URL: API endpoint for your email service
