@@ -4,22 +4,18 @@ const testimonials = [
     {
         quote: "Absolutely brilliant service! The team was professional, thorough, and my house has never looked better. Will definitely be booking again.",
         rating: 5,
-        location: "Jesmond, Newcastle"
     },
     {
         quote: "I was impressed by the attention to detail and the eco-friendly products they used. Great value for money and very reliable.",
         rating: 5,
-        location: "Gosforth, Newcastle"
     },
     {
         quote: "The deep clean service was exactly what I needed before moving in. Every corner was spotless. Highly recommend!",
         rating: 5,
-        location: "Heaton, Newcastle"
     },
     {
         quote: "Flexible scheduling and friendly staff. They worked around my busy schedule and the results were fantastic.",
         rating: 5,
-        location: "Quayside, Newcastle"
     }
 ];
 
@@ -31,7 +27,7 @@ function renderStars(rating: number) {
 <section id="testimonials" class="section bg-white">
     <div class="container-custom">
         <h2 class="section-title fade-in-on-scroll">What Our Customers Say</h2>
-        <p class="section-subtitle fade-in-on-scroll">Real feedback from satisfied customers in Newcastle</p>
+        <p class="section-subtitle fade-in-on-scroll">Real feedback from satisfied customers</p>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((testimonial, index) => (
